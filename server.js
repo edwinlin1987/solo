@@ -32,14 +32,12 @@ passport.deserializeUser(function(obj, done) {
 
 passport.use(new LocalStrategy( function(username, password, done) {
   new User({username: username}).fetch().then(function(found){
-      if(found){
-        bcrypt.compare(password, found.get('password'), function(error , result){
-          if(result){
-            return done(null, found);
-          } else {
-            return done(null, false, {message: 'incorrect password'});
-          }
-        });
+      if(found) {
+        if (found.get('password') === password){
+          return done(null, found);
+        } else {
+          return done(null, false, {message: 'incorrect password'});
+        }
       } else {
         return done(null, false, {message: 'incorrect username'});
       }
