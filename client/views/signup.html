@@ -1,0 +1,35 @@
+<div class="left" ng-controller='SideController as SideCtrl'>
+  <ul>
+    <li>User</li>
+    <li>Best: {{best}} words/minute</li>
+    <li>Average: {{wpm}} words/minute</li>
+    <li>Games played: {{ count }}</li>
+    <li>Date Joined {{ createdAt }} </li>
+  </ul>
+</div>
+
+<div id='signup' class='container' ng-controller='AuthController'>
+  <h1>Sign Up</h1>
+  <form name="signupForm" ng-submit='signupForm.$valid && signup()' novalidate>
+    <input type='text' ng-model='user.username' ng-minlength=5 ng-maxlength=15 placeholder="Username between 5 and 15 characters" required>
+    <input type="password" ng-model='user.password' ng-minlength=8 ng-maxlength=20 placeholder="Password between 8 and 20 characters" required>
+    <button>Sign Up</button>
+  </form>
+  <a class='othersign' href="#/signin">Sign in to your account!</a>
+</div>
+
+<div class="right" ng-controller='TopController as TopCtrl'>
+  <div>Top Scores</div>
+  <table>
+    <tr>
+      <th>WPM</th> 
+      <th>Function</th>
+      <th>Mistakes</th>
+    </tr>
+    <tr ng-repeat="score in scores">
+      <td>{{score.wpm}}</td>
+      <td>{{score.function}}</td>
+      <td>{{score.mistakes}}</td>
+    </tr>
+  </table>
+</div>

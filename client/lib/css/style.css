@@ -1,0 +1,168 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* CSS Begins HERE */
+body {
+  background: #D1EAFF;
+  font-family: sans-serif;
+  min-width: 768px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+/* Header Display */
+.header {
+  height: 40px;
+  background: #016FB9;
+  /* border: 1px solid #000; */
+  overflow: hidden;
+  color: #FFF;
+}
+
+.logo {
+  font-size: 24px;
+  line-height: 32px;
+  padding: 5px 30px;
+  float: left;
+}
+.logo:hover {
+  background: #019db9;
+}
+.nav {
+  padding: 12px 10px;
+  float: right;
+  border-left: 1px solid #333;
+}
+.nav:hover {
+  background: #019db9;
+}
+.active {
+  background: #aaa;
+}
+
+/* Main content Display*/
+.clearfix { *zoom: 1; }
+.clearfix:before, .clearfix:after { display: table; content: ""; }
+.clearfix:after { clear: both; } 
+
+.left {
+  color: #D1EAFF;
+  background: #012868;
+  float: left;
+  width: 13%;
+  padding: 1%;
+  height: 1000px;
+  text-align: center;
+}
+
+.container {
+  float:left;
+  width:68%;
+  padding: 1%;
+}
+
+/* Signup/Signin Display*/
+
+.ng-invalid.ng-dirty {
+  border-color: red;
+}
+
+.ng-valid.ng-dirty {
+  border-color: green;
+}
+.othersign, #signin, #signup {
+  text-align: center;
+  padding: 20px 0px;
+  color:  #016FB9;
+}
+form {
+  padding: 20px 0px;
+}
+/* ranking display */
+.right {
+  color: #D1EAFF;
+  background: #012868;
+  float: left;
+  width: 13%;
+  padding: 1%;
+  height: 1000px;
+  text-align: center;
+}
+tr {
+  border: 1px solid #D1EAFF;
+  font-size: 10px;
+}
+td, th {
+  padding: 1%;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Game Display */
+span {
+  white-space: pre-wrap;
+  display: inline;
+  font: 14px/2 "Monaco";
+}
+
+.complete {
+  color: #FF0000;
+}
+
+.incomplete {
+  color: #000000;
+}
+
+.current {
+  border: 1px solid black;
+  background-color: #000;
+}

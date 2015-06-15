@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  JS Racing
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  A speedtyping game for Javascript developers
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  JS Racing is a game for Javascript developers. It takes functions from the Underscore.js library and asks users to type them out verbatim. In doing so, developers can practice quickly typing the syntax and punctuation that they can't practice with normal typing.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  There are no good typing games aimed at helping developers practice syntax.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  JS Racing takes out the general problem solving and mental burden of development by giving users Javascript code to copy.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  "I developed JS Racing to fight my own difficulties with typing punctuation."
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  Just connect to the website, and start playing!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "Well that was fun."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  Good luck and start typing!

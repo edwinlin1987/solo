@@ -1,0 +1,34 @@
+<div class="left" ng-controller='SideController as SideCtrl'>
+  <ul>
+    <li>User</li>
+    <li>Best: {{best}} words/minute</li>
+    <li>Average: {{wpm}} words/minute</li>
+    <li>Games played: {{ count }}</li>
+    <li>Date Joined {{ createdAt }} </li>
+  </ul>
+</div>
+
+<div class="container" ng-controller='GameController as GameCtrl'>
+  <span ng-model='start' class='complete'>{{ start }}</span><!--
+  --><span class='current'></span><!--
+  --><span ng-model='end' class='incomplete'>{{ end }}</span>
+
+  <div class='scoreboard'> Current Words per Minutes: {{ wpm }}</div>
+  <div class='scoreboard'> Mistakes so far: {{ data.mistakes }}</div>
+</div>
+
+<div class="right" ng-controller='TopController as TopCtrl'>
+  <div>Top Scores</div>
+  <table>
+    <tr>
+      <th>WPM</th> 
+      <th>Function</th>
+      <th>Mistakes</th>
+    </tr>
+    <tr ng-repeat="score in scores">
+      <td>{{score.wpm}}</td>
+      <td>{{score.function}}</td>
+      <td>{{score.mistakes}}</td>
+    </tr>
+  </table>
+</div>

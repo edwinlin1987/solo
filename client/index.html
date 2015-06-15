@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app='myApp'>
+  <head>
+    <title>JS Match</title>
+
+    <!-- Dependencies -->
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/angular-ui-router.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="views/scores.js"></script>
+    <script src="views/codes.js"></script>
+    <script src="views/top.js"></script>
+    <script src="views/game.js"></script>
+    <script src="views/side.js"></script>
+    <script src="views/auth.js"></script>
+
+    <!-- App -->
+
+
+    <script src="app.js"></script>
+    
+    <!-- Styling -->
+
+    <link rel="stylesheet" type="text/css" href="lib/css/style.css">
+  </head>
+  <body> 
+  <!-- ng-controller="NavController as NavCtrl" -->
+    <header class="header">
+      <ul>
+        <li class="logo"><a ui-sref='game'>JSRacer</a></li>
+        <li class="nav" ui-sref-active="active"><a ui-sref='signup'>Sign up</a></li>
+        <li class="nav" ui-sref-active="active"><a ui-sref='signin'>Sign in</a></li>
+        <li class="nav" ui-sref-active="active"><a ui-sref='about'>About</a></li>
+      </ul>
+    </header>
+    <main class='clearfix' ui-view>
+    </main>
+  </body>
+</html>
