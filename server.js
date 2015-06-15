@@ -67,7 +67,5 @@ app.get('/scores', function (req, res) {
   });
 });
 
-
-
 app.listen(4568);
 console.log('listening on 4568');

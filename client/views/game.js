@@ -14,8 +14,7 @@ angular.module('game', ['scores', 'code'])
   $(document).on('keydown',function(event){
     if(event.keyCode === 8){ event.preventDefault();}
   });
-  $('body').on('keypress', function(event) {
-    event.stopPropagation();
+  angular.element(document).bind('keypress', function(event) {
     event.preventDefault();
     var next = function () {
       $scope.start = $scope.start + $scope.end[0];
