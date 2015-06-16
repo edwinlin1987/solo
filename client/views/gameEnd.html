@@ -1,5 +1,5 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div class='switch' ng-hide="user"> Welcome to JavaScriptRacing! Log in to keep track of your High Scores! </div>
+  <div class='switch' ng-hide="user"> Welcome to JavaScript Racing! Log in to keep track of your High Scores! </div>
   <div class='switch'> Recent Games </div>
   <ul class='switch' ng-show="user">
     <li><strong>{{user.username}}</strong></li>
@@ -26,7 +26,7 @@
 <div class="container" ng-controller='GameController as GameCtrl'>
   <div class='scoreboard'> You finished with {{ lastWPM }} words per minute! Not bad... I guess.</div>
   <div class='scoreboard'> You made {{ lastMistakes }} mistakes. That's {{(1-(lastMistakes/lastChars))*100 | number:0 }} percent accuracy!</div>
-  <div class='scoreboard'>Would you like to <a class='replay' ng-click='reload()'>Play Again?</a></div>
+  <div class='scoreboard'>Would you like to <a class='replay' ui-sref='game'>Play Again?</a></div>
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
@@ -46,7 +46,7 @@
     </tr>
   </table>
   <div ng-click='click()' class='switch'>Scores by Function</div>
-  <div class='switch'>{{display}}</div>
+  <div ng-click='click()' class='switch'>{{display}}</div>
   <table>
     <tr>
       <th>WPM</th>

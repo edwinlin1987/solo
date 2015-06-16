@@ -1,5 +1,5 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div class='switch' ng-hide="user"> Welcome to JavaScriptRacing! Log in to keep track of your High Scores! </div>
+  <div class='switch' ng-hide="user"> Welcome to JavaScript Racing! Log in to keep track of your High Scores! </div>
   <div class='switch'> Recent Games </div>
   <ul class='switch' ng-show="user">
     <li><strong>{{user.username}}</strong></li>
@@ -31,19 +31,19 @@
   </div>
   <div id="container">
     <ul id="keyboard" class='clearfix'>
-        <li class="192">` ~ </li>
-        <li class="49">1 ! </li>
-        <li class="50">2 @ </li>
-        <li class="51">3 # </li>
-        <li class="52">4 $ </li>
-        <li class="53">5 % </li>
-        <li class="54">6 ^ </li>
-        <li class="55">7 &amp; </li>
-        <li class="56">8 * </li>
-        <li class="57">9 ( </li>
-        <li class="48">0 ) </li>
-        <li class="189">- _ </li>
-        <li class="187">= + </li>
+        <li class="192"><span>~</span><span>`</span></li>
+        <li class="49"><span>!</span><span>1</span> </li>
+        <li class="50"><span>@</span><span>2</span> </li>
+        <li class="51"><span>#</span><span>3</span> </li>
+        <li class="52"><span>$</span><span>4</span> </li>
+        <li class="53"><span>%</span><span>5</span> </li>
+        <li class="54"><span>^</span><span>6</span> </li>
+        <li class="55"><span>&amp;</span><span>7</span> </li>
+        <li class="56"><span>*</span><span>8</span> </li>
+        <li class="57"><span>(</span><span>9</span> </li>
+        <li class="48"><span>)</span><span>0</span> </li>
+        <li class="189"><span>_</span><span>-</span></li>
+        <li class="187"><span>+</span><span>=</span> </li>
         <li class="delete lastitem 8">delete</li>
         <li class="tab 9">tab</li>
         <li class="81">q</li>
@@ -56,9 +56,9 @@
         <li class="73">i</li>
         <li class="79">o</li>
         <li class="80">p</li>
-        <li class="219">[ { </li>
-        <li class="221">] } </li>
-        <li class="symbol lastitem 220">\ | </li>
+        <li class="219"><span>{</span><span>[</span> </li>
+        <li class="221"><span>}</span><span>]</span> </li>
+        <li class="symbol lastitem 220"><span>|</span><span>\</span> </li>
         <li class="capslock 27">caps lock</li>
         <li class="65">a</li>
         <li class="83">s</li>
@@ -69,8 +69,8 @@
         <li class="74">j</li>
         <li class="75">k</li>
         <li class="76">l</li>
-        <li class="186">; : </li>
-        <li class="222">' &quot; </li>
+        <li class="186"><span>:</span><span>;</span> </li>
+        <li class="222"><span>&quot;</span><span>'</span> </li>
         <li class="return lastitem 13">return</li>
         <li class="left-shift 16">shift</li>
         <li class="90">z</li>
@@ -80,15 +80,15 @@
         <li class="66">b</li>
         <li class="78">n</li>
         <li class="77">m</li>
-        <li class="188">, &lt; </li>
-        <li class="190">. &gt; </li>
-        <li class="191">/ ? </li>
+        <li class="188"><span>&lt;</span><span>,</span> </li>
+        <li class="190"><span>&gt;</span><span>.</span> </li>
+        <li class="191"><span>?</span><span>/</span> </li>
         <li class="right-shift lastitem 16">shift</li>
         <li class="space lastitem 32">&nbsp;</li>
     </ul>
   </div>
-  <div class='scoreboard'> Current Words per Minutes: {{ wpm }}</div>
-  <div class='scoreboard'> Mistakes so far: {{ mistakes }}</div>
+  <div class='score'> Current Words per Minutes: {{ wpm }}</div>
+  <div class='mistakes'> Mistakes so far: {{ mistakes }}</div>
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
@@ -108,7 +108,7 @@
     </tr>
   </table>
   <div ng-click='click()' class='switch'>Scores by Function</div>
-  <div class='switch'>{{display}}</div>
+  <div ng-click='click()' class='switch'>{{display}}</div>
   <table>
     <tr>
       <th>WPM</th>

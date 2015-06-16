@@ -23,16 +23,19 @@
   </table>
 </div>
 
-<div id='signup' class='container' ng-controller='AuthController'>
-  <h1>Sign Up</h1>
+<div id='about' class='container'>
+  <h1 class='about'>About</h1>
 
-  <div class='fail' ng-show='fail'> Username Taken! </div>
-  <form name="signupForm" ng-submit='signupForm.$valid && signup()' novalidate>
-    <input type='text' ng-model='user.username' ng-minlength=5 ng-maxlength=15 placeholder="Username 5-15 characters" required>
-    <input type="password" ng-model='user.password' ng-minlength=4 ng-maxlength=15 placeholder="Password between 4-15 characters" required>
-    <button>Sign Up</button>
-  </form>
-  <a class='othersign' href="#/signin">Have an account? Sign in!</a>
+  <p>My name is Edwin, an aspiring software developer at <a class='link' href='http://hackreactor.com'>Hack Reactor.</a> JavaScript Racing is a game I created as a solo project.</p>
+
+  <p>I'm a terrible typist, especially when it comes to the heavy syntax required in coding. However, when I'm coding my focus is on building whatever I'm trying to build. Thus, I decided to create JavaScript typing to help myself, and anyone else, get better at typing JavaScript.
+
+  <p>JavaScript Racing was built with Angular, HTML, and CSS exclusively. It uses certain functions from the <a class='link' href="http://underscorejs.org">Underscore.js</a> library as a context for practicing JavaScript typing so the user doesn't need to come up with code while practicing.</p>
+
+  <h1 class='about'>Contact Me</h1>
+
+  <p>Email me any suggestions, comments, or bugs at eddyjs1987@gmail.com.</p>
+
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>

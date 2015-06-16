@@ -123,6 +123,16 @@ a {
   padding-top: 20px;
   padding-left: 20px;
 }
+.score {
+  padding: 10px;
+  padding-left: 50px;
+  float: left;
+}
+.mistakes {
+  padding: 10px;
+  padding-right: 50px;
+  float: right;
+}
 
 .switch {
   padding: 10px;
@@ -217,56 +227,73 @@ span {
   border: 1px solid black;
   background-color: #000;
 }
-
+/*About display*/
+.about {
+  padding: 20px;
+  text-decoration: underline;
+}
+p {
+  padding: 10px;
+}
+.link {
+  color: #777;
+}
 /* Keyboard display*/
 #container {
-margin: auto;
-width: 540px;
+  margin: auto;
+  width: 540px;
 }
 #keyboard {
-margin: 0;
-padding: 0;
-list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 #keyboard li {
-float: left;
-margin: 0 5px 5px 0;
-width: 30px;
-height: 30px;
-line-height: 30px;
-text-align: center;
-background: #fff;
-border: 1px solid #f9f9f9;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #f9f9f9;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#keyboard li span {
+  padding-top: 8px;
+  padding-bottom: 4px;
+  font-size: 10px;
+  display: block;
+  line-height: 0px;
 }
 .capslock, .tab, .left-shift {
-clear: left;
+  clear: left;
 }
 #keyboard .tab {
-width: 51px;  
+  width: 51px;  
 }
 #keyboard .delete {
-width: 52px;
+  width: 52px;
 }
 #keyboard .capslock {
-width: 60px;
+  width: 60px;
 }
 #keyboard .return {
-width: 57px;
+  width: 57px;
 }
 #keyboard .left-shift {
-width: 72px;
+  width: 72px;
 }
 #keyboard .right-shift {
-width: 82px;
+  width: 82px;
 }
 .lastitem {
-margin-right: 0;
+  margin-right: 0;
 }
 #keyboard .space {
-clear: left;
-width: 531px;
+  clear: left;
+  width: 531px;
 }
 #keyboard .down {
   position: relative;

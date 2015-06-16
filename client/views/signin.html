@@ -1,5 +1,5 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div class='switch' ng-hide="user"> Welcome to JavaScriptRacing! Log in to keep track of your High Scores! </div>
+  <div class='switch' ng-hide="user"> Welcome to JavaScript Racing! Log in to keep track of your High Scores! </div>
   <div class='switch'> Recent Games </div>
   <ul class='switch' ng-show="user">
     <li><strong>{{user.username}}</strong></li>
@@ -32,7 +32,7 @@
     <input type="password" ng-model='user.password' placeholder='Password' ng-minlength=4 ng-maxlength=15 required>
     <button>Sign In</button>
   </form>
-  <div>Don't have an account?<a class='othersign' href="#/signup">Sign up now!!!</a></div>
+  <div>Don't have an account? <a class='othersign' href="#/signup">Sign up now!!!</a></div>
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
@@ -52,7 +52,7 @@
     </tr>
   </table>
   <div ng-click='click()' class='switch'>Scores by Function</div>
-  <div class='switch'>{{display}}</div>
+  <div ng-click='click()' class='switch'>{{display}}</div>
   <table>
     <tr>
       <th>WPM</th>

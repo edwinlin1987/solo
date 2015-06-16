@@ -1,9 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var session = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 var port = process.env.port || 8081;
 var db = require('./db/config');
 var Users = require('./db/collections/users');
@@ -13,39 +10,9 @@ var Score = require('./db/models/score');
 
 var app = express();
 app.use(morgan('dev'));
-app.use(session({
-  secret: 'obvious_secret',
-}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/client'));
-
-
-passport.serializeUser(function(user, done) {
-  console.log(user);
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-
-passport.use(new LocalStrategy( function(username, password, done) {
-  new User({username: username}).fetch().then(function(found){
-      if(found) {
-        if (found.get('password') === password){
-          return done(null, found);
-        } else {
-          return done(null, false, {message: 'incorrect password'});
-        }
-      } else {
-        return done(null, false, {message: 'incorrect username'});
-      }
-    });
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.post('/signin', function (req, res) {
   var username = req.body.username;
@@ -55,10 +22,10 @@ app.post('/signin', function (req, res) {
     if(!user) {
       res.redirect('/signin');
     } else if (password === user.get('password')) {
-      req.session.regenerate(function(){
-        req.session.user = user;
+      // req.session.regenerate(function(){
+        // req.session.user = user;
         res.send(201, user);
-      });
+      // });
     } else {
       res.redirect('/signin');
     }
@@ -79,10 +46,10 @@ app.post('/signup', function (req, res) {
         'time':0
       }).save().then(function(newUser) {
         Users.add(newUser);
-        req.session.regenerate(function(){
-          req.session.user = newUser;
+        // req.session.regenerate(function(){
+          // req.session.user = newUser;
           res.send(201, newUser);
-        });
+        // });
       });
     } else {
       res.redirect('/signup');
@@ -111,7 +78,6 @@ app.post('/scores', function (req, res) {
     'mistakes' : req.body.mistakes,
     'time': req.body.time
   }).save().then(function(newScore) {
-    Scores.add(newScore);
     res.send(201, newScore);
   });
 });

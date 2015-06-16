@@ -1,6 +1,6 @@
 angular.module('game', ['scores', 'code'])
 
-.controller('GameController', function ($location, $state, $rootScope,$scope, Scores, Codes) {
+.controller('GameController', function ($location, $state, $rootScope,$scope, Scores, Codes, $stateParams) {
   
   $scope.load = function () {
     var func = Object.keys(Codes)[Math.floor(Math.random()*Object.keys(Codes).length)];
@@ -13,7 +13,12 @@ angular.module('game', ['scores', 'code'])
   $scope.load();
 
   $scope.reload = function() {
-    $location.path('/game');
+    $scope.load();
+    $state.transitionTo('game', {
+        reload: true,
+        inherit: false,
+        notify: true
+    });
   };
 
   var key;
@@ -50,7 +55,7 @@ angular.module('game', ['scores', 'code'])
         // $scope[key]++;
         $scope.mistakes++;
       }
-      if (!$scope.end.length) {
+      if ($scope.end.length === 0) {
         var username = 'guest';
         if ($rootScope.user) { username = $rootScope.user.username; }
         Scores.addScore({ username: username, function: $scope.function, wpm : $scope.wpm, chars : $scope.chars, mistakes: $scope.mistakes, time : new Date() - $scope.time });
@@ -58,7 +63,11 @@ angular.module('game', ['scores', 'code'])
         $rootScope.lastWPM = $scope.wpm;
         $rootScope.lastChars = $scope.chars;
         $scope.load();
-        $location.path('/gameEnd');
+        $state.transitionTo('gameEnd', {
+            reload: true,
+            inherit: false,
+            notify: true
+        });
       }
       $rootScope.$apply();
     }
