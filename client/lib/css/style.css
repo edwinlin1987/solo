@@ -72,6 +72,9 @@ a {
   width: 100%;
   padding: 5px 30px;
 }
+.footer li {
+  text-align: center;
+}
 .eddyjs {
   color: #96D5FF;
 }
@@ -124,9 +127,14 @@ a {
 .switch {
   padding: 10px;
 }
+.switch li {
+  fontsize: 12px;
+}
 
 .game {
-  padding: 20px;
+  margin: 5px;
+  border: 1px solid 3012868;
+  padding: 15px;
 }
 
 .replay {
