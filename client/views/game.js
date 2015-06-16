@@ -1,15 +1,19 @@
 angular.module('game', ['scores', 'code'])
 
-.controller('GameController', function ($location, $state,$rootScope,$scope, Scores, Codes) {
-  var func = Object.keys(Codes)[Math.floor(Math.random()*Object.keys(Codes).length)];
+.controller('GameController', function ($location, $state, $rootScope,$scope, Scores, Codes) {
   
   $scope.load = function () {
+    var func = Object.keys(Codes)[Math.floor(Math.random()*Object.keys(Codes).length)];
     $scope.start = "";
     $scope.end = Codes[func];
-    $scope.user = 'anon';
     $scope.function = func;
     $scope.chars = 0;
     $scope.mistakes = 0;
+  };
+  $scope.load();
+
+  $scope.reload = function() {
+    $location.path('/game');
   };
 
   var key;
@@ -54,12 +58,9 @@ angular.module('game', ['scores', 'code'])
         $rootScope.lastWPM = $scope.wpm;
         $rootScope.lastChars = $scope.chars;
         $scope.load();
-        $location.path('/gameEnd').then(function() {
-          $state.reload(true);
-        });
+        $location.path('/gameEnd');
       }
       $rootScope.$apply();
     }
   });
-  $scope.load();
 });
