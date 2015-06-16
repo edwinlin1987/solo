@@ -124,6 +124,21 @@ a {
   padding: 10px;
 }
 
+.replay {
+  background: #012868;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.replay:hover {
+  background: #fff;
+  color: #012868;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
 /* Signup/Signin Display*/
 
 .ng-invalid.ng-dirty {

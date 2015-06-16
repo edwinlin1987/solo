@@ -1,16 +1,14 @@
-var host =  '127.0.0.1' || process.env.RDS_HOSTNAME || 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
+var host = process.env.RDS_HOSTNAME || 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
 
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: host || 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com',
-    user: 'root',
-    password: '',
-    //user: 'eddyjs',
-    //password: 'edwinlin1987',
+    host: host,
+    user: 'eddyjs',
+    password: 'edwinlin1987',
     database: 'ebdb',
     charset: 'utf8',
-    //port: 3306
+    port: 3306
   }
 });
 var db = require('bookshelf')(knex);

@@ -11,6 +11,7 @@
 <div class="container" ng-controller='GameController as GameCtrl'>
   <div class='scoreboard'> You finished with {{ lastWPM }} words per minute! Not bad... I guess.</div>
   <div class='scoreboard'> You made {{ lastMistakes }} mistakes. That's {{(1-(lastMistakes/lastChars))*100 | number:0 }} percent accuracy!</div>
+  <div class='scoreboard'>Would you like to <a class='replay' ui-sref='game'>Play Again?</a></div>
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
