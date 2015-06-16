@@ -6,6 +6,20 @@
     <li>Total Characters: {{user.chars}} </li>
     <li>Accuracy: {{ ((1-(user.mistakes/user.chars))*100) | number: 0}} %</li>
   </ul>
+  <table>
+    <tr>
+      <th>WPM</th>
+      <th>Username</th>
+      <th>Function</th>
+      <th>Mistakes</th>
+    </tr>
+    <tr ng-repeat="score in scores | filter: user.username | orderBy:'createdAt' | limitTo: 15">
+      <td>{{score.wpm}}</td>
+      <td>{{score.username}}</td>
+      <td>{{score.function}}</td>
+      <td>{{score.mistakes}}</td>
+    </tr>
+  </table>
 </div>
 
 <div id='signin' class='container' ng-controller='AuthController as AuthCtrl'>
@@ -13,11 +27,11 @@
 
   <div class='fail' ng-show='fail'> Invalid Username or Password </div>
   <form name="signinForm" ng-submit='signinForm.$valid && signin()'  novalidate>
-    <input type='text'ng-model='user.username' placeholder='Username...' ng-minlength=5 ng-maxlength=15 required>
-    <input type="password" ng-model='user.password' placeholder='Password...' ng-minlength=4 ng-maxlength=15 required>
+    <input type='text'ng-model='user.username' placeholder='Username' ng-minlength=5 ng-maxlength=15 required>
+    <input type="password" ng-model='user.password' placeholder='Password' ng-minlength=4 ng-maxlength=15 required>
     <button>Sign In</button>
   </form>
-  <a class='othersign' href="#/signup" >Sign up now!!!</a>
+  <div>Don't have an account?<a class='othersign' href="#/signup">Sign up now!!!</a></div>
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
@@ -29,7 +43,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores">
+    <tr ng-repeat="score in scores | orderBy:'-wpm' | limitTo: 10">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>

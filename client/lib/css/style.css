@@ -118,10 +118,15 @@ a {
 
 .scoreboard {
   padding-top: 20px;
+  padding-left: 20px;
 }
 
 .switch {
   padding: 10px;
+}
+
+.game {
+  padding: 20px;
 }
 
 .replay {

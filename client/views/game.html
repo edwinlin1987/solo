@@ -6,15 +6,30 @@
     <li>Total Characters: {{user.chars}} </li>
     <li>Accuracy: {{ ((1-(user.mistakes/user.chars))*100) | number: 0}} %</li>
   </ul>
+  <table>
+    <tr>
+      <th>WPM</th>
+      <th>Username</th>
+      <th>Function</th>
+      <th>Mistakes</th>
+    </tr>
+    <tr ng-repeat="score in scores | filter: user.username | orderBy:'createdAt' | limitTo: 15">
+      <td>{{score.wpm}}</td>
+      <td>{{score.username}}</td>
+      <td>{{score.function}}</td>
+      <td>{{score.mistakes}}</td>
+    </tr>
+  </table>
 </div>
 
 <div class="container" ng-controller='GameController as GameCtrl'>
-  <span ng-model='start' class='complete'>{{ start }}</span><!--
-  --><span class='current'></span><!--
-  --><span ng-model='end' class='incomplete'>{{ end }}</span>
-
-  <div class='scoreboard'> Current Words per Minutes: {{ wpm }}</div>
-  <div class='scoreboard'> Mistakes so far: {{ mistakes }}</div>
+  <div class="game">
+    <span ng-model='start' class='complete'>{{ start }}</span><!--
+    --><span class='current'></span><!--
+    --><span ng-model='end' class='incomplete'>{{ end }}</span>
+  </div>
+    <div class='scoreboard'> Current Words per Minutes: {{ wpm }}</div>
+    <div class='scoreboard'> Mistakes so far: {{ mistakes }}</div>
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
@@ -26,7 +41,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores | orderBy:wpm">
+    <tr ng-repeat="score in scores | orderBy:'-wpm' | limitTo: 10">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>

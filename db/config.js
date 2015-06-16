@@ -1,4 +1,4 @@
-var host = process.env.RDS_HOSTNAME || 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
+var host = 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
 
 var knex = require('knex')({
   client: 'mysql',

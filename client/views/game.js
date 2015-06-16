@@ -50,8 +50,7 @@ angular.module('game', ['scores', 'code'])
         $rootScope.lastWPM = $scope.wpm;
         $rootScope.lastChars = $scope.chars;
         $location.path('/gameEnd');
-        // $state.reload(true);
-        // $scope.load();
+        $scope.load();
       }
       $rootScope.$apply();
     }
