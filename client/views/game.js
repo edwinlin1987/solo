@@ -42,17 +42,15 @@ angular.module('game', ['scores', 'code'])
         // $scope[key]++;
         $scope.mistakes++;
       }
-      $scope.$apply();
       if (!$scope.end.length) {
         var username = 'guest';
         if ($rootScope.user) { username = $rootScope.user.username; }
         Scores.addScore({ username: username, function: $scope.function, wpm : $scope.wpm, chars : $scope.chars, mistakes: $scope.mistakes, time : new Date() - $scope.time });
-        
         alert("YOU FINISHED! You typed at " + $scope.wpm + " words per minute and made " + $scope.mistakes + " mistake(s). Play again?");
-        
         $state.reload(true);
         $scope.load();
       }
+      $rootScope.$apply();
     }
   });
   $scope.load();

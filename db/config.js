@@ -1,13 +1,14 @@
+var host =  '127.0.0.1' || process.env.RDS_HOSTNAME || 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
 
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: 'jsracing.cewya1tpyzm8.us-west-2.rds.amazonaws.com',
+    host: 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com',
     user: 'eddyjs',
     password: 'edwinlin1987',
-    database: 'jsracing',
+    database: 'ebdb',
     charset: 'utf8',
-    port: 3306
+    //port: 3306
   }
 });
 var db = require('bookshelf')(knex);

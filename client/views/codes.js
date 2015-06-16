@@ -9,59 +9,20 @@ angular.module('code', [])
     contains: "_.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {\n  if (!isArrayLike(obj)) obj = _.values(obj);\n  if (typeof fromIndex != 'number' || guard) fromIndex = 0;\n  return _.indexOf(obj, item, fromIndex) >= 0;\n};",
     invoke : "_.invoke = function(obj, method) {\n  var args = slice.call(arguments, 2);\n  var isFunc = _.isFunction(method);\n  return _.map(obj, function(value) {\n    var func = isFunc ? method : value[method];\n    return func == null ? func : func.apply(value, args);\n  });\n};",
     pluck: "_.pluck = function(obj, key) {\n  return _.map(obj, _.property(key));\n};",
-    where: "_.where = function(obj, attrs) {\n  return _.filter(obj, _.matcher(attrs));\n};"
+    where: "_.where = function(obj, attrs) {\n  return _.filter(obj, _.matcher(attrs));\n};",
+    initial: "_.initial = function(array, n, guard) {\n  return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));\n};",
+    last: "_.last = function(array, n, guard) {\n  if (array == null) return void 0;\n  if (n == null || guard) return array[array.length - 1];\n  return _.rest(array, Math.max(0, array.length - n));\n};",
+    rest: "_.rest = _.tail = _.drop = function(array, n, guard) {\n  return slice.call(array, n == null || guard ? 1 : n);\n};",
+    compact: "_.compact = function(array) {\n  return _.filter(array, _.identity);\n};",
+    find: "_.find = _.detect = function(obj, predicate, context) {\n  var key;\n  if (isArrayLike(obj)) {\n    key = _.findIndex(obj, predicate, context);\n  } else {\n    key = _.findKey(obj, predicate, context);\n  }\n  if (key !== void 0 && key !== -1) return obj[key];\n};",
+    reject: "_.reject = function(obj, predicate, context) {\n  return _.filter(obj, _.negate(cb(predicate)), context);\n};",
+    every: "_.every = _.all = function(obj, predicate, context) {\n  predicate = cb(predicate, context);\n  var keys = !isArrayLike(obj) && _.keys(obj),\n      length = (keys || obj).length;\n  for (var index = 0; index < length; index++) {\n    var currentKey = keys ? keys[index] : index;\n    if (!predicate(obj[currentKey], currentKey, obj)) return false;\n  }\n  return true;\n};",
+    findWhere: "_.findWhere = function(obj, attrs) {\n  return _.find(obj, _.matcher(attrs));\n};"
   };
 }); 
 
 
-/*
-  function createReduce(dir) {    function iterator(obj, iteratee, memo, keys, index, length) {
-      for (; index >= 0 && index < length; index += dir) {
-        var currentKey = keys ? keys[index] : index;
-        memo = iteratee(memo, obj[currentKey], currentKey, obj);
-      }
-      return memo;
-    }
-
-    return function(obj, iteratee, memo, context) {
-      iteratee = optimizeCb(iteratee, context, 4);
-      var keys = !isArrayLike(obj) && _.keys(obj),
-          length = (keys || obj).length,
-          index = dir > 0 ? 0 : length - 1;      if (arguments.length < 3) {
-        memo = obj[keys ? keys[index] : index];
-        index += dir;
-      }
-      return iterator(obj, iteratee, memo, keys, index, length);
-    };
-  }
-  _.reduce = _.foldl = _.inject = createReduce(1);
-  _.reduceRight = _.foldr = createReduce(-1);
-  _.find = _.detect = function(obj, predicate, context) {
-    var key;
-    if (isArrayLike(obj)) {
-      key = _.findIndex(obj, predicate, context);
-    } else {
-      key = _.findKey(obj, predicate, context);
-    }
-    if (key !== void 0 && key !== -1) return obj[key];
-  };
-  _.reject = function(obj, predicate, context) {
-    return _.filter(obj, _.negate(cb(predicate)), context);
-  };
-  _.every = _.all = function(obj, predicate, context) {
-    predicate = cb(predicate, context);
-    var keys = !isArrayLike(obj) && _.keys(obj),
-        length = (keys || obj).length;
-    for (var index = 0; index < length; index++) {
-      var currentKey = keys ? keys[index] : index;
-      if (!predicate(obj[currentKey], currentKey, obj)) return false;
-    }
-    return true;
-  };
-  _.findWhere = function(obj, attrs) {
-    return _.find(obj, _.matcher(attrs));
-  };
-  _.max = function(obj, iteratee, context) {
+/*  _.max = function(obj, iteratee, context) {
     var result = -Infinity, lastComputed = -Infinity,
         value, computed;
     if (iteratee == null && obj != null) {
@@ -185,20 +146,6 @@ angular.module('code', [])
     if (array == null) return void 0;
     if (n == null || guard) return array[0];
     return _.initial(array, array.length - n);
-  };
-  _.initial = function(array, n, guard) {
-    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
-  };
-  _.last = function(array, n, guard) {
-    if (array == null) return void 0;
-    if (n == null || guard) return array[array.length - 1];
-    return _.rest(array, Math.max(0, array.length - n));
-  };
-  _.rest = _.tail = _.drop = function(array, n, guard) {
-    return slice.call(array, n == null || guard ? 1 : n);
-  };
-  _.compact = function(array) {
-    return _.filter(array, _.identity);
   };
   var flatten = function(input, shallow, strict, startIndex) {
     var output = [], idx = 0;

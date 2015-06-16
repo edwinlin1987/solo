@@ -57,13 +57,23 @@ a {
   text-decoration: none;
   color: #fff;
 }
-/* Header Display */
-.header {
+/* Header/Footer Display */
+.header, .footer {
   height: 40px;
   background: #016FB9;
   /* border: 1px solid #000; */
   overflow: hidden;
   color: #FFF;
+}
+.footer {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding: 5px 30px;
+}
+.eddyjs {
+  color: #96D5FF;
 }
 
 .logo {
@@ -106,6 +116,10 @@ a {
   float:left;
   width:68%;
   padding: 1%;
+}
+
+.scoreboard {
+  padding-top: 20px;
 }
 
 /* Signup/Signin Display*/

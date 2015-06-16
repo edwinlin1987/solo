@@ -1,5 +1,5 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div ng-hide="user"> Welcome to JSRacing </div>
+  <div ng-hide="user"> Welcome to JSRacing! Log in to keep track of your High Scores! </div>
   <ul ng-show="user">
     <li>{{user.username}}</li>
     <li>Average: {{user.chars*12000/user.time | number:0}} words/minute</li>
@@ -26,7 +26,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores">
+    <tr ng-repeat="score in scores | orderBy:wpm">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>
