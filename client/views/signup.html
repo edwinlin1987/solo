@@ -2,9 +2,9 @@
   <div class='switch' ng-hide="user"> Welcome to JSRacing! Log in to keep track of your High Scores! </div>
   <div class='switch'> Recent Games </div>
   <ul class='switch' ng-show="user">
-    <li>{{user.username}}</li>
-    <li>Average: {{user.chars*12000/user.time | number:0}} words/minute</li>
-    <li>Total Characters: {{user.chars}} </li>
+    <li><strong>{{user.username}}</strong></li>
+    <li>Average: {{user.chars*12000/user.time | number:0}} wpm</li>
+    <li>Characters: {{user.chars}} </li>
     <li>Accuracy: {{ ((1-(user.mistakes/user.chars))*100) | number: 0}} %</li>
   </ul>
   <table>
@@ -52,6 +52,7 @@
     </tr>
   </table>
   <div ng-click='click()' class='switch'>Scores by Function</div>
+  <div class='switch'>{{display}}</div>
   <table>
     <tr>
       <th>WPM</th>

@@ -53,8 +53,10 @@ angular.module('game', ['scores', 'code'])
         $rootScope.lastMistakes = $scope.mistakes;
         $rootScope.lastWPM = $scope.wpm;
         $rootScope.lastChars = $scope.chars;
-        $location.path('/gameEnd');
         $scope.load();
+        $location.path('/gameEnd').then(function() {
+          $state.reload(true);
+        });
       }
       $rootScope.$apply();
     }
