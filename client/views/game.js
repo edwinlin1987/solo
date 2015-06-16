@@ -15,7 +15,12 @@ angular.module('game', ['scores', 'code'])
   var key;
   
   angular.element(document).on('keydown',function(event){
+    console.log(event.keyCode);
+    angular.element(document.getElementsByClassName(''+event.keyCode)).addClass('down');
     if(event.keyCode === 8 && document.activeElement.nodeName !== 'INPUT'){ event.preventDefault();}
+  });
+  angular.element(document).on('keyup',function(event){
+    angular.element(document.getElementsByClassName(''+event.keyCode)).removeClass('down');
   });
   angular.element(document).on('keypress', function(event) {
     if (document.activeElement.nodeName !== 'INPUT') {
