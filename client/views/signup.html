@@ -1,18 +1,18 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <ul>
-    <li>User</li>
-    <li>Best: {{best}} words/minute</li>
-    <li>Average: {{wpm}} words/minute</li>
-    <li>Games played: {{ count }}</li>
-    <li>Date Joined {{ createdAt }} </li>
+  <div ng-hide="user"> Welcome to JSRacing </div>
+  <ul ng-show="user">
+    <li>{{user.username}}</li>
+    <li>Average: {{Math.round(user.chars*12000/user.time)}} words/minute</li>
+    <li>Total Characters: {{user.chars}} </li>
+    <li>Total Mistakes: {{ user.mistakes }} </li>
   </ul>
 </div>
 
 <div id='signup' class='container' ng-controller='AuthController'>
   <h1>Sign Up</h1>
   <form name="signupForm" ng-submit='signupForm.$valid && signup()' novalidate>
-    <input type='text' ng-model='user.username' ng-minlength=5 ng-maxlength=15 placeholder="Username between 5 and 15 characters" required>
-    <input type="password" ng-model='user.password' ng-minlength=8 ng-maxlength=20 placeholder="Password between 8 and 20 characters" required>
+    <input type='text' ng-model='user.username' ng-minlength=5 ng-maxlength=15 placeholder="Username 5-15 characters" required>
+    <input type="password" ng-model='user.password' ng-minlength=4 ng-maxlength=15 placeholder="Password between 4-15 characters" required>
     <button>Sign Up</button>
   </form>
   <a class='othersign' href="#/signin">Sign in to your account!</a>
@@ -22,12 +22,14 @@
   <div>Top Scores</div>
   <table>
     <tr>
-      <th>WPM</th> 
+      <th>WPM</th>
+      <th>Username</th>
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
     <tr ng-repeat="score in scores">
       <td>{{score.wpm}}</td>
+      <td>{{score.username}}</td>
       <td>{{score.function}}</td>
       <td>{{score.mistakes}}</td>
     </tr>

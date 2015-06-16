@@ -47,17 +47,72 @@ passport.use(new LocalStrategy( function(username, password, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.post('/signin', function (req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+
+  new User({username: username}).fetch().then(function(user) {
+    if(!user) {
+      res.redirect('/signin');
+    } else if (password === user.get('password')) {
+      req.session.regenerate(function(){
+        req.session.user = user;
+        res.send(201, user);
+      });
+    } else {
+      res.redirect('/signin');
+    }
+  });
+});
+
+app.post('/signup', function (req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+
+  new User({username: username}).fetch().then(function(found) {
+    if(!found) {
+      var user = new User({
+        'username': username,
+        'password': password,
+        'chars': 0,
+        'mistakes': 0,
+        'time':0
+      }).save().then(function(newUser) {
+        Users.add(newUser);
+        req.session.regenerate(function(){
+          req.session.user = newUser;
+          res.send(201, newUser);
+        });
+      });
+    } else {
+      res.redirect('/signup');
+    }
+  });
+});
+
 app.post('/scores', function (req, res) {
-  data = req.body.data;
-  var score = new Score({
+  new User({ username : req.body.username }).fetch()
+  .then(function(user) {
+    console.log(user);
+    if (user) {
+      user.set({
+        'chars': user.get('chars') + req.body.chars,
+        'mistakes': user.get('mistakes') + req.body.mistakes,
+        'time': user.get('time') + req.body.time
+      }).save();
+    }
+  })
+
+  new Score({
+    'username': req.body.username,
     'wpm': req.body.wpm,
-    'function': data.function,
-    'chars': data.chars,
-    'mistakes' : data.mistakes,
+    'function': req.body.function,
+    'chars': req.body.chars,
+    'mistakes' : req.body.mistakes,
     'time': req.body.time
   }).save().then(function(newScore) {
     Scores.add(newScore);
-    res.send(200, newScore);
+    res.send(201, newScore);
   });
 });
 
