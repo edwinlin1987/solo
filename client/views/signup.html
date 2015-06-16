@@ -51,7 +51,7 @@
       <td>{{score.mistakes}}</td>
     </tr>
   </table>
-  <div class='switch'>Scores by Function</div>
+  <div ng-click='click()' class='switch'>Scores by Function</div>
   <table>
     <tr>
       <th>WPM</th>
@@ -59,7 +59,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores | orderBy:'wpm'">
+    <tr ng-repeat="score in scores | filter: display | orderBy:'-wpm'">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>

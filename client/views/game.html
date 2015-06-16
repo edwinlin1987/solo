@@ -45,46 +45,46 @@
         <li class="189">- _ </li>
         <li class="187">= + </li>
         <li class="delete lastitem 8">delete</li>
-        <li class="tab">tab</li>
+        <li class="tab 9">tab</li>
         <li class="81">q</li>
         <li class="87">w</li>
         <li class="69">e</li>
-        <li class="letter">r</li>
-        <li class="letter">t</li>
-        <li class="letter">y</li>
-        <li class="letter">u</li>
-        <li class="letter">i</li>
-        <li class="letter">o</li>
-        <li class="letter">p</li>
-        <li class="symbol">[ { </li>
-        <li class="symbol">] } </li>
-        <li class="symbol lastitem">\ | </li>
-        <li class="capslock">caps lock</li>
-        <li class="">a</li>
-        <li class="letter">s</li>
-        <li class="letter">d</li>
-        <li class="letter">f</li>
-        <li class="letter">g</li>
-        <li class="letter">h</li>
-        <li class="letter">j</li>
-        <li class="letter">k</li>
-        <li class="letter">l</li>
-        <li class="symbol">; : </li>
-        <li class="symbol">' &quot; </li>
-        <li class="return lastitem">return</li>
-        <li class="left-shift">shift</li>
-        <li class="letter">z</li>
-        <li class="letter">x</li>
-        <li class="letter">c</li>
-        <li class="letter">v</li>
-        <li class="letter">b</li>
-        <li class="letter">n</li>
-        <li class="letter">m</li>
-        <li class="symbol">, &lt; </li>
-        <li class="symbol">. &gt; </li>
-        <li class="symbol">/ ? </li>
-        <li class="right-shift lastitem">shift</li>
-        <li class="space lastitem">&nbsp;</li>
+        <li class="82">r</li>
+        <li class="84">t</li>
+        <li class="89">y</li>
+        <li class="85">u</li>
+        <li class="73">i</li>
+        <li class="79">o</li>
+        <li class="80">p</li>
+        <li class="219">[ { </li>
+        <li class="221">] } </li>
+        <li class="symbol lastitem 220">\ | </li>
+        <li class="capslock 27">caps lock</li>
+        <li class="65">a</li>
+        <li class="83">s</li>
+        <li class="68">d</li>
+        <li class="70">f</li>
+        <li class="71">g</li>
+        <li class="72">h</li>
+        <li class="74">j</li>
+        <li class="75">k</li>
+        <li class="76">l</li>
+        <li class="186">; : </li>
+        <li class="222">' &quot; </li>
+        <li class="return lastitem 13">return</li>
+        <li class="left-shift 16">shift</li>
+        <li class="90">z</li>
+        <li class="88">x</li>
+        <li class="67">c</li>
+        <li class="86">v</li>
+        <li class="66">b</li>
+        <li class="78">n</li>
+        <li class="77">m</li>
+        <li class="188">, &lt; </li>
+        <li class="190">. &gt; </li>
+        <li class="191">/ ? </li>
+        <li class="right-shift lastitem 16">shift</li>
+        <li class="space lastitem 32">&nbsp;</li>
     </ul>
   </div>
   <div class='scoreboard'> Current Words per Minutes: {{ wpm }}</div>
@@ -107,7 +107,7 @@
       <td>{{score.mistakes}}</td>
     </tr>
   </table>
-  <div class='switch'>Scores by Function</div>
+  <div ng-click='click()' class='switch'>Scores by Function</div>
   <table>
     <tr>
       <th>WPM</th>
@@ -115,7 +115,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores | orderBy:'wpm'">
+    <tr ng-repeat="score in scores | filter: display | orderBy:'-wpm'">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>
