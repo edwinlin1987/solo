@@ -1,6 +1,6 @@
 angular.module('game', ['scores', 'code'])
 
-.controller('GameController', function ($state,$rootScope,$scope, Scores, Codes) {
+.controller('GameController', function ($location, $state,$rootScope,$scope, Scores, Codes) {
   var func = Object.keys(Codes)[Math.floor(Math.random()*Object.keys(Codes).length)];
   
   $scope.load = function () {
@@ -46,9 +46,12 @@ angular.module('game', ['scores', 'code'])
         var username = 'guest';
         if ($rootScope.user) { username = $rootScope.user.username; }
         Scores.addScore({ username: username, function: $scope.function, wpm : $scope.wpm, chars : $scope.chars, mistakes: $scope.mistakes, time : new Date() - $scope.time });
-        alert("YOU FINISHED! You typed at " + $scope.wpm + " words per minute and made " + $scope.mistakes + " mistake(s). Play again?");
-        $state.reload(true);
-        $scope.load();
+        $rootScope.lastMistakes = $scope.mistakes;
+        $rootScope.lastWPM = $scope.wpm;
+        $rootScope.lastChars = $scope.chars;
+        $location.path('/gameEnd');
+        // $state.reload(true);
+        // $scope.load();
       }
       $rootScope.$apply();
     }

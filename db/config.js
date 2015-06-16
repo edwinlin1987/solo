@@ -3,9 +3,11 @@ var host =  '127.0.0.1' || process.env.RDS_HOSTNAME || 'aa1swgymnjc7719.csxowzdf
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com',
-    user: 'eddyjs',
-    password: 'edwinlin1987',
+    host: host || 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com',
+    user: 'root',
+    password: '',
+    //user: 'eddyjs',
+    //password: 'edwinlin1987',
     database: 'ebdb',
     charset: 'utf8',
     //port: 3306

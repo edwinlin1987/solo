@@ -14,5 +14,9 @@ angular.module('myApp', ['scores', 'code', 'auth', 'side', 'top', 'game', 'ui.ro
     .state('signin', {
       url: '/signin',
       templateUrl: 'views/signin.html',
+    })
+    .state('gameEnd', {
+      url: '/gameEnd',
+      templateUrl: 'views/gameEnd.html'
     });
 });

@@ -1,6 +1,6 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div ng-hide="user"> Welcome to JSRacing! Log in to keep track of your High Scores! </div>
-  <ul ng-show="user">
+  <div class='switch' ng-hide="user"> Welcome to JSRacing! Log in to keep track of your High Scores! </div>
+  <ul class='switch' ng-show="user">
     <li>{{user.username}}</li>
     <li>Average: {{user.chars*12000/user.time | number:0}} words/minute</li>
     <li>Total Characters: {{user.chars}} </li>
@@ -10,6 +10,8 @@
 
 <div id='signin' class='container' ng-controller='AuthController as AuthCtrl'>
   <h1>Sign In</h1>
+
+  <div class='fail' ng-show='fail'> Invalid Username or Password </div>
   <form name="signinForm" ng-submit='signinForm.$valid && signin()'  novalidate>
     <input type='text'ng-model='user.username' placeholder='Username...' ng-minlength=5 ng-maxlength=15 required>
     <input type="password" ng-model='user.password' placeholder='Password...' ng-minlength=4 ng-maxlength=15 required>
@@ -19,7 +21,7 @@
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
-  <div>Top Scores</div>
+  <div class='switch'>Top Scores</div>
   <table>
     <tr>
       <th>WPM</th>

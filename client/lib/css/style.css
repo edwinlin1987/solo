@@ -66,7 +66,7 @@ a {
   color: #FFF;
 }
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0px;
   bottom: 0px;
   width: 100%;
@@ -106,20 +106,22 @@ a {
   color: #D1EAFF;
   background: #012868;
   float: left;
-  width: 13%;
-  padding: 1%;
-  height: 1000px;
+  width: 15%;
+  height: 800px;
   text-align: center;
 }
 
 .container {
   float:left;
-  width:68%;
-  padding: 1%;
+  width:70%;
 }
 
 .scoreboard {
   padding-top: 20px;
+}
+
+.switch {
+  padding: 10px;
 }
 
 /* Signup/Signin Display*/
@@ -139,14 +141,22 @@ a {
 form {
   padding: 20px 0px;
 }
+.fail {
+  padding: 15px;
+  color: #FF7F7F;
+}
+input {
+  width: 200px;
+  display: block;
+  margin: 5px auto;
+}
 /* ranking display */
 .right {
   color: #D1EAFF;
   background: #012868;
   float: left;
-  width: 13%;
-  padding: 1%;
-  height: 1000px;
+  width: 15%;
+  height: 800px;
   text-align: center;
 }
 tr {

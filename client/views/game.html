@@ -1,6 +1,6 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div ng-hide="user"> Welcome to JSRacing! Log in to keep track of your High Scores! </div>
-  <ul ng-show="user">
+  <div class='switch' ng-hide="user"> Welcome to JSRacing! Log in to keep track of your High Scores! </div>
+  <ul class='switch' ng-show="user">
     <li>{{user.username}}</li>
     <li>Average: {{user.chars*12000/user.time | number:0}} words/minute</li>
     <li>Total Characters: {{user.chars}} </li>
@@ -18,7 +18,7 @@
 </div>
 
 <div class="right" ng-controller='TopController as TopCtrl'>
-  <div>Top Scores</div>
+  <div class='switch'>Top Scores</div>
   <table>
     <tr>
       <th>WPM</th>
