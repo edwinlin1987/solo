@@ -2,11 +2,12 @@
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
+    host: 'jsracing.cewya1tpyzm8.us-west-2.rds.amazonaws.com',
+    user: 'eddyjs',
+    password: 'edwinlin1987',
     database: 'jsracing',
     charset: 'utf8',
+    port: 3306
   }
 });
 var db = require('bookshelf')(knex);

@@ -4,7 +4,7 @@
     <li>{{user.username}}</li>
     <li>Average: {{user.chars*12000/user.time | number:0}} words/minute</li>
     <li>Total Characters: {{user.chars}} </li>
-    <li>Total Mistakes: {{ user.mistakes }} </li>
+    <li>Accuracy: {{ ((1-(user.mistakes/user.chars))*100) | number: 0}} %</li>
   </ul>
 </div>
 

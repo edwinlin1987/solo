@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var port = process.env.port || 8000;
 var db = require('./db/config');
 var Users = require('./db/collections/users');
 var User = require('./db/models/user');
@@ -122,5 +122,5 @@ app.get('/scores', function (req, res) {
   });
 });
 
-app.listen(4568);
-console.log('listening on 4568');
+app.listen(port);
+console.log('listening on' + port);
