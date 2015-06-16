@@ -2,7 +2,7 @@
   <div ng-hide="user"> Welcome to JSRacing </div>
   <ul ng-show="user">
     <li>{{user.username}}</li>
-    <li>Average: {{Math.round(user.chars*12000/user.time)}} words/minute</li>
+    <li>Average: {{user.chars*12000/user.time | number:0}} words/minute</li>
     <li>Total Characters: {{user.chars}} </li>
     <li>Total Mistakes: {{ user.mistakes }} </li>
   </ul>

@@ -1,6 +1,6 @@
 angular.module('users', [])
 
-.factory('Users', function ($http) {
+.factory('Users', function ($http, $rootScope) {
 
   var signIn = function (user) {
     return $http({

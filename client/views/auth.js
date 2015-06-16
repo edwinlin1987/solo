@@ -5,16 +5,17 @@ angular.module('auth', ['users'])
 
   $scope.signin = function () {
     Users.signIn($scope.user)
-      .then(function() {
-        $rootScope.user = $scope.user;
+      .then(function(user) {
+        console.log(user.data);
+        $rootScope.user = user.data;
         $location.path('/game');
       });
   };
 
   $scope.signup = function () {
     Users.addUser($scope.user)
-      .then(function() {
-        $rootScope.user = $scope.user;
+      .then(function(user) {
+        $rootScope.user = user.data;
         $location.path('#/signin');
       });
   };

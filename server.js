@@ -101,7 +101,7 @@ app.post('/scores', function (req, res) {
         'time': user.get('time') + req.body.time
       }).save();
     }
-  })
+  });
 
   new Score({
     'username': req.body.username,
