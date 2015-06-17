@@ -15,9 +15,6 @@ angular.module('users', [])
     method: 'POST',
     url: '/signup',
     data : user
-    })
-    .then(function (resp) {
-      return resp.data;
     });
   };
 

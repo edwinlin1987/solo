@@ -21,7 +21,7 @@ angular.module('auth', ['users'])
       .then(function(user) {
         $scope.fail = false;
         $rootScope.user = user.data;
-        $location.path('/signin');
+        $location.path('/game');
       })
       .catch(function(){
         $scope.fail = true;

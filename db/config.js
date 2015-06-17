@@ -3,16 +3,16 @@ var host = 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: host,
-    user: 'eddyjs',
-    password: 'edwinlin1987',
-    database: 'ebdb',
-    charset: 'utf8',
-    port: 3306
-    // host: '127.0.0.1',
-    // user: 'root',
-    // password: '',
-    // database: 'ebdb'
+    // host: host,
+    // user: 'eddyjs',
+    // password: 'edwinlin1987',
+    // database: 'ebdb',
+    // charset: 'utf8',
+    // port: 3306
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    database: 'ebdb'
   }
 });
 var db = require('bookshelf')(knex);
@@ -39,7 +39,7 @@ db.knex.schema.hasTable('users').then(function(exists) {
     db.knex.schema.createTable('users', function (user) {
       user.increments('id').primary();
       user.string('username', 100).unique();
-      user.string('password', 100);
+      user.string('password', 255);
       user.integer('chars', 100);
       user.integer('mistakes', 100);
       user.integer('time', 100);

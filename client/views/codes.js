@@ -17,9 +17,13 @@ angular.module('code', [])
     find: "_.find = _.detect = function(obj, predicate, context) {\n  var key;\n  if (isArrayLike(obj)) {\n    key = _.findIndex(obj, predicate, context);\n  } else {\n    key = _.findKey(obj, predicate, context);\n  }\n  if (key !== void 0 && key !== -1) return obj[key];\n};",
     reject: "_.reject = function(obj, predicate, context) {\n  return _.filter(obj, _.negate(cb(predicate)), context);\n};",
     every: "_.every = _.all = function(obj, predicate, context) {\n  predicate = cb(predicate, context);\n  var keys = !isArrayLike(obj) && _.keys(obj),\n      length = (keys || obj).length;\n  for (var index = 0; index < length; index++) {\n    var currentKey = keys ? keys[index] : index;\n    if (!predicate(obj[currentKey], currentKey, obj)) return false;\n  }\n  return true;\n};",
-    findWhere: "_.findWhere = function(obj, attrs) {\n  return _.find(obj, _.matcher(attrs));\n};"
+    findWhere: "_.findWhere = function(obj, attrs) {\n  return _.find(obj, _.matcher(attrs));\n};",
+    shuffle: "_.shuffle = function(obj) {\n  var set = isArrayLike(obj) ? obj : _.values(obj);\n  var length = set.length;\n  var shuffled = Array(length);\n  for (var index = 0, rand; index < length; index++) {\n    rand = _.random(0, index);\n    if (rand !== index) shuffled[index] = shuffled[rand];\n    shuffled[rand] = set[index];\n  }\n  return shuffled;\n};",
+    sample: "_.sample = function(obj, n, guard) {\n  if (n == null || guard) {\n    if (!isArrayLike(obj)) obj = _.values(obj);\n    return obj[_.random(obj.length - 1)];\n  }\n  return _.shuffle(obj).slice(0, Math.max(0, n));\n};"
   };
-}); 
+});
+
+
 
 
 /*  _.max = function(obj, iteratee, context) {
@@ -67,24 +71,6 @@ angular.module('code', [])
       });
     }
     return result;
-  };
-  _.shuffle = function(obj) {
-    var set = isArrayLike(obj) ? obj : _.values(obj);
-    var length = set.length;
-    var shuffled = Array(length);
-    for (var index = 0, rand; index < length; index++) {
-      rand = _.random(0, index);
-      if (rand !== index) shuffled[index] = shuffled[rand];
-      shuffled[rand] = set[index];
-    }
-    return shuffled;
-  };
-  _.sample = function(obj, n, guard) {
-    if (n == null || guard) {
-      if (!isArrayLike(obj)) obj = _.values(obj);
-      return obj[_.random(obj.length - 1)];
-    }
-    return _.shuffle(obj).slice(0, Math.max(0, n));
   };
   _.sortBy = function(obj, iteratee, context) {
     iteratee = cb(iteratee, context);

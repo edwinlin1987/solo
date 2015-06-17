@@ -1,13 +1,13 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var port = process.env.port || 8081;
+var port = process.env.PORT || 8081;
 var db = require('./db/config');
 var Users = require('./db/collections/users');
 var User = require('./db/models/user');
 var Scores = require('./db/collections/scores');
 var Score = require('./db/models/score');
-
+var bcrypt = require('bcrypt-nodejs');
 var app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,13 +21,14 @@ app.post('/signin', function (req, res) {
   new User({username: username}).fetch().then(function(user) {
     if(!user) {
       res.redirect('/signin');
-    } else if (password === user.get('password')) {
-      // req.session.regenerate(function(){
-        // req.session.user = user;
-        res.send(201, user);
-      // });
     } else {
-      res.redirect('/signin');
+      user.comparePassword(password, function(match){
+        if(match) {
+          res.send(201, user);
+        } else {
+          res.redirect('/signin');
+        }
+      });
     }
   });
 });
@@ -45,10 +46,9 @@ app.post('/signup', function (req, res) {
         'mistakes': 0,
         'time':0
       }).save().then(function(newUser) {
-        Users.add(newUser);
         // req.session.regenerate(function(){
           // req.session.user = newUser;
-          res.send(201, newUser);
+        res.send(201, newUser);
         // });
       });
     } else {

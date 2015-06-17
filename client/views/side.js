@@ -5,5 +5,4 @@ angular.module('side', [])
   Scores.getScores().then(function(data) {
     $scope.scores = data;
   });
-
 });
