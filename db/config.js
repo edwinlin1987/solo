@@ -3,16 +3,16 @@ var host = 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    // host: host,
-    // user: 'eddyjs',
-    // password: 'edwinlin1987',
-    // database: 'ebdb',
-    // charset: 'utf8',
-    // port: 3306
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'ebdb'
+    host: host,
+    user: 'eddyjs',
+    password: 'edwinlin1987',
+    database: 'ebdb',
+    charset: 'utf8',
+    port: 3306
+    // host: '127.0.0.1',
+    // user: 'root',
+    // password: '',
+    // database: 'ebdb'
   }
 });
 var db = require('bookshelf')(knex);
