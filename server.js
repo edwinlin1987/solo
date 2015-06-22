@@ -60,7 +60,6 @@ app.post('/signup', function (req, res) {
 app.post('/scores', function (req, res) {
   new User({ username : req.body.username }).fetch()
   .then(function(user) {
-    console.log(user);
     if (user) {
       user.set({
         'chars': user.get('chars') + req.body.chars,

@@ -1,6 +1,9 @@
-var host = 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
+var host = process.env.HOST || 'aa1swgymnjc7719.csxowzdfrg1f.us-west-1.rds.amazonaws.com';
+var port = process.env.DBPORT || 3306;
+
 
 var knex = require('knex')({
+  // client: 'pg',
   client: 'mysql',
   connection: {
     host: host,
@@ -8,7 +11,7 @@ var knex = require('knex')({
     password: 'edwinlin1987',
     database: 'ebdb',
     charset: 'utf8',
-    port: 3306
+    port: port
     // host: '127.0.0.1',
     // user: 'root',
     // password: '',

@@ -1,5 +1,5 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div class='switch' ng-hide="user"> Welcome to JavaScript Racing! Log in to keep track of your High Scores! </div>
+  <div class='switch' ng-hide="user"> Welcome to JavaScript Typist! Log in to keep track of your High Scores! </div>
   <div class='switch'> Recent Games </div>
   <ul class='switch' ng-show="user">
     <li><strong>{{user.username}}</strong></li>
@@ -14,7 +14,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores | filter: user.username | orderBy:'-created_at' | limitTo: 15">
+    <tr ng-repeat="score in scores | filter: user.username : true | orderBy:'-created_at' | limitTo: 15">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>
@@ -30,7 +30,7 @@
 
   <p>I'm a terrible typist, especially when it comes to the heavy syntax required in coding. However, when I'm coding my focus is on building whatever I'm trying to build. Thus, I decided to create JavaScript typing to help myself, and anyone else, get better at typing JavaScript.
 
-  <p>JavaScript Racing was built with Angular, HTML, and CSS exclusively. It uses certain functions from the <a class='link' href="http://underscorejs.org">Underscore.js</a> library as a context for practicing JavaScript typing so the user doesn't need to come up with code while practicing.</p>
+  <p>JavaScript Typist was built with Angular, HTML, and CSS exclusively. It uses certain functions from the <a class='link' href="http://underscorejs.org">Underscore.js</a> library as a context for practicing JavaScript typing so the user doesn't need to come up with code while practicing.</p>
 
   <h1 class='about'>Contact Me</h1>
 
@@ -63,7 +63,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores | filter: display | orderBy:'-wpm'">
+    <tr ng-repeat="score in scores | filter: display : true | orderBy:'-wpm'">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>

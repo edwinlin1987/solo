@@ -1,5 +1,5 @@
 <div class="left" ng-controller='SideController as SideCtrl'>
-  <div class='switch' ng-hide="user"> Welcome to JavaScript Racing! Log in to keep track of your High Scores! </div>
+  <div class='switch' ng-hide="user"> Welcome to JavaScript Typist! Log in to keep track of your High Scores! </div>
   <div class='switch'> Recent Games </div>
   <ul class='switch' ng-show="user">
     <li><strong>{{user.username}}</strong></li>
@@ -14,7 +14,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores | filter: user.username | orderBy:'-created_at' | limitTo: 15">
+    <tr ng-repeat="score in scores | filter: user.username : true | orderBy:'-created_at' | limitTo: 15">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>
@@ -60,7 +60,7 @@
       <th>Function</th>
       <th>Mistakes</th>
     </tr>
-    <tr ng-repeat="score in scores | filter: display | orderBy:'-wpm'">
+    <tr ng-repeat="score in scores | filter: display : true| orderBy:'-wpm'">
       <td>{{score.wpm}}</td>
       <td>{{score.username}}</td>
       <td>{{score.function}}</td>

@@ -1,4 +1,4 @@
-angular.module('myApp', ['scores', 'code', 'auth', 'side', 'top', 'game', 'ui.router'])
+angular.module('myApp', ['scores', 'code', 'auth', 'side', 'top', 'game', 'end','ui.router'])
 
 .config(function($urlRouterProvider, $httpProvider, $stateProvider) {
   $urlRouterProvider.otherwise('/game')
